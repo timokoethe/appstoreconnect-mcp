@@ -14,7 +14,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  check:
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+
   release:
+    needs: check
     name: Create GitHub release
     runs-on: ubuntu-latest
     timeout-minutes: 10

@@ -117,4 +117,6 @@ such as `v1.0.1` on the intended commit. The version after `v` must exactly matc
 `package.json.version`. The release workflow creates a GitHub Release with
 automatically generated notes, grouped by PR labels in `.github/release.yml`.
 Tags such as `v1.1.0-beta1` create prereleases and require a matching package version.
+Before creating the release, the workflow runs the same four CI checks on the tag
+commit with Node.js 20, 22, 24, and 26. All checks must pass.
 This workflow does not publish to npm; npm publication is a separate step.
